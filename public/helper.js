@@ -41,7 +41,7 @@ function sanitizeMessage(msg) {
       html = html + '"';
       insideString = false;
     } else if (!insideString && !inside && msg[i] == "@") {
-      html = html + '<span class="username">@';
+      html = html + '@<span class="username">';
       i++;
       while (i < msg.length && username_regex.test(msg[i])) {
         html = html + msg[i];
@@ -63,4 +63,18 @@ function sanitizeMessage(msg) {
     }
   }
   return html;
+}
+
+function timeFormat(time) {
+  let date = new Date(time);
+  let dd = (date.getDate() + "").padStart(2, "0");
+  let mm = (date.getMonth() + 1 + "").padStart(2, "0");
+  let yyyy = date.getFullYear() + "";
+
+  let tm =
+    (date.getHours() + "").padStart(2, "0") +
+    ":" +
+    (date.getMinutes() + "").padStart(2, "0");
+
+  return dd + "/" + mm + "/" + yyyy + " " + tm;
 }

@@ -19,12 +19,12 @@ socket.on("invalidUsername", () => {
   alert("Username already taken. Please refresh page to try again.");
 });
 
-socket.on("privateMessage", (username, msg) => {
-  newChat(username, msg, true);
+socket.on("privateMessage", (username, msg, time) => {
+  newChat(username, msg, time, true);
 });
 
-socket.on("publicMessage", (username, msg) => {
-  newChat(username, msg);
+socket.on("publicMessage", (username, msg, time) => {
+  newChat(username, msg, time);
 });
 
 socket.on("userList", (userList) => {
@@ -34,12 +34,18 @@ socket.on("userList", (userList) => {
 });
 
 socket.on("joinChat", (username) => {
+  if (typeof username !== "string") {
+    return;
+  }
   handleUser(username);
   onlineUsers.add(username);
   updateOnlineUserList();
 });
 
 socket.on("exitChat", (username) => {
+  if (typeof username !== "string") {
+    return;
+  }
   handleUser(username, false);
   onlineUsers.delete(username);
   updateOnlineUserList();

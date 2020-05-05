@@ -38,14 +38,19 @@ io.sockets.on("connection", (socket) => {
   socket.on("sendMessage", (msg) => {
     [isAll, userList] = getSendList(msg);
     if (isAll) {
-      io.emit("publicMessage", socket.username, msg);
+      io.emit("publicMessage", socket.username, msg, Date.now());
     } else {
       for (user of userList) {
         if (user == socket.username) continue;
         if (users.has(user))
-          io.to(users.get(user)).emit("privateMessage", socket.username, msg);
+          io.to(users.get(user)).emit(
+            "privateMessage",
+            socket.username,
+            msg,
+            Date.now()
+          );
       }
-      socket.emit("privateMessage", socket.username, msg);
+      socket.emit("privateMessage", socket.username, msg, Date.now());
     }
   });
 });

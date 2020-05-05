@@ -2,7 +2,11 @@ function updateOnlineUserList() {
   let x = document.getElementById("list");
   let html = "<h1>Online Users</h1>";
   for (user of onlineUsers) {
-    html = html + `<h2 class="${user === username ? "me" : ""}">${user}</h2>`;
+    html =
+      html +
+      `<h2 class="${
+        user === username ? "me" : ""
+      }">${user} &nbsp;&nbsp;&nbsp;&nbsp;</h2>`;
   }
   x.innerHTML = html;
 }
@@ -20,9 +24,10 @@ form.addEventListener("submit", (e) => {
   box.value = "";
 });
 
-function newChat(user, msg, private = false) {
+function newChat(user, msg, time, private = false) {
   let chat = document.createElement("div");
   chat.classList.add("chat");
+  chat.setAttribute("data-time", timeFormat(time));
   if (private) {
     chat.classList.add("private");
   } else {
