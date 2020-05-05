@@ -1,0 +1,133 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font: 13px Helvetica, Arial;
+}
+form {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 2px solid;
+  height: 15%;
+}
+form #message {
+  border: 2px solid;
+  padding: 10px;
+  width: 85%;
+  height: 100%;
+  resize: none;
+  font-size: 22px;
+}
+form button {
+  margin: 3%;
+  width: 9%;
+  background: rgb(130, 224, 255);
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+}
+#board {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 85%;
+  display: flex;
+  justify-content: center;
+}
+
+#board #messages {
+  width: 75%;
+  height: 100%;
+  overflow-x: scroll;
+  overflow-y: scroll;
+  display: flex;
+  flex-direction: column;
+}
+
+#board #messages .chat {
+  margin: 10px 0;
+  padding: 10px 5px;
+  width: auto;
+  max-width: 75%;
+  font-size: 18px;
+  align-self: flex-start;
+  margin-left: 20px;
+  color: #fff;
+  border-radius: 0.5em;
+  background: #323331;
+  line-height: 1.4em;
+}
+
+#board #messages .chat h1 {
+  font-size: 1.25em;
+  padding: 0 0 10px;
+  color: #edf060;
+}
+
+#board #messages .chat em {
+  font-weight: 500;
+  font-size: 1.05em;
+}
+
+#board #messages .chat strong {
+  font-weight: 800;
+  font-size: 1.15em;
+}
+
+#board #messages .chat mark {
+  padding: 3px;
+  font-weight: 300;
+  font-size: 1.05em;
+  background: #070209;
+  color: #fff;
+}
+
+#board #messages .chat.sent {
+  align-self: flex-end;
+  margin-left: 0px;
+  margin-right: 20px;
+}
+
+#board #messages .chat.sent h1 {
+  display: none;
+}
+
+#board #messages .info {
+  margin: 10px 0;
+  padding: 5px;
+  align-self: center;
+  font-size: 18px;
+  text-align: center;
+  width: auto;
+  border-radius: 10px;
+  background-color: #edf060;
+}
+
+#board #messages .join {
+  color: #310d20;
+}
+
+#board #messages .left {
+  color: #af0505;
+}
+
+#board #list {
+  width: 25%;
+  border: 2px solid black;
+}
+
+#list h1 {
+  text-align: center;
+  font-size: 30px;
+  text-decoration: underline;
+  padding: 10px 0;
+}
+
+#public {
+  width: 100%;
+  height: 100vh;
+}
