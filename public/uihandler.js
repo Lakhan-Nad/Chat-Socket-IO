@@ -2,11 +2,7 @@ function updateOnlineUserList() {
   let x = document.getElementById("list");
   let html = "<h1>Online Users</h1>";
   for (user of onlineUsers) {
-    html =
-      html +
-      `<h2 class="${
-        user === username ? "me" : ""
-      }">${user} &nbsp;&nbsp;&nbsp;&nbsp;</h2>`;
+    html = html + `<h2 class="${user === username ? "me" : ""}">${user}</h2>`;
   }
   x.innerHTML = html;
 }
@@ -38,6 +34,7 @@ function newChat(user, msg, time, private = false) {
   }
   chat.innerHTML = `<h1>${user}</h1>` + sanitizeMessage(msg);
   messageBox.appendChild(chat);
+  scrollToMessage();
 }
 
 function handleUser(user, join = true) {
@@ -57,4 +54,10 @@ function handleUser(user, join = true) {
     el.innerHTML = `<span>${user}</span> ${action} the Chat`;
   }
   messageBox.appendChild(el);
+  scrollToMessage();
+}
+
+function scrollToMessage() {
+  let height = messageBox.clientHeight;
+  messageBox.scrollTop = height;
 }

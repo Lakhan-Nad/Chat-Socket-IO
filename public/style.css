@@ -53,7 +53,7 @@ form button {
 }
 
 #board #messages .chat {
-  margin: 10px 0;
+  margin: 17px 0;
   padding: 10px 5px;
   width: auto;
   min-width: 120px;
@@ -170,9 +170,11 @@ form button {
   margin: 8px 0;
   height: 1.3em;
   font-size: 24px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  text-align: center;
+}
+
+#list h2.me {
+  text-decoration: underline;
 }
 
 #public {
